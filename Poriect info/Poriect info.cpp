@@ -50,7 +50,7 @@ int main(){
     k = 2; st[1] = x; st[k] = 0;
     while (k > 0){
         val = 0;
-        while (val == 0 && st[k] < n){
+        while (val == 0 && st[k] <= n){
             st[k] = st[k] + 1;
             if (valid(k) == 1) val = 1;}
         if (val == 1)
