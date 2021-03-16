@@ -5,7 +5,7 @@ int a[50][50], x, y, i, j, n, k, st[1000], val, x2, y2;
 string p, s, q;
 bool ok1 = false, ok2 = false;
 ifstream f("D:\\Visual Studio repos\\Poriect info\\matrice.txt");
-//numele oraselor
+//name of cities
 const char* cities[33] = { "random","Shenyang","Beijing","Tianjin","Jinan","Xuzhou","Nanjing","Shanghai","Hangzhou","Huangshan","Hefei","Zhengzhou","Huashan","Wuhan","Changsha","Guanzhou","Hong Kong","Shenzen","Guilin","Nanning","Guiyang","Kunming","Chongqing","Chengdu","Xian","Pingyao","Taiyuan","Shijiazhuang","Lanzhou","Xining","Nanchang","Wuyishan","Fuzhou" };
 void tipar(){
     int i;
@@ -22,13 +22,14 @@ int valid(int k){
             if (a[st[i - 1]][st[i]] != 1) return 0;
     return 1;}
 int main(){
-    //citirea matricii din fisier
+    //reading the matrix from file
     n = 32;
     for (i = 1; i <= 32; i++)
         for (j = 1; j <= 32; j++)
             f >> a[i][j];
-    //citirea punctului de plecare respectiv de sosire
+    //reading starting and arrival points
     cin >> p >> s;
+    //checking if the names are correct
     for (i = 0; i <= 32; i++)
     {
         q = cities[i];
@@ -43,10 +44,14 @@ int main(){
             ok2 = true;
         }
     }
+    //if the names aren't correct the program tells the user which one is incorrect
     if (ok1 != true)
         cout << "nume oras plecare incorect"<<endl;
     if (ok2 != true)
         cout << "nume oras sosire incorect";
+    //if any of the names are incorrect the program stops
+    if (ok1 != true || ok2 != true)
+        return 0;
     k = 2; st[1] = x; st[k] = 0;
     while (k > 0){
         val = 0;
