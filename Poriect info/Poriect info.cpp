@@ -54,7 +54,7 @@ int main(){
     //if any of the names are incorrect the program stops
     if (ok1 != true || ok2 != true)
         return 0;
-    //finding all the routes you can take
+    //finding the routes you can take
     k = 2; st[1] = x; st[k] = 0;
     while (k > 0){
         val = 0;
