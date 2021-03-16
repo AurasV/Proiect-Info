@@ -7,13 +7,14 @@ bool ok1 = false, ok2 = false;
 ifstream f("D:\\Visual Studio repos\\Poriect info\\matrice.txt");
 //name of cities
 const char* cities[33] = { "shabdajdhajhhajkhdaj","Shenyang","Beijing","Tianjin","Jinan","Xuzhou","Nanjing","Shanghai","Hangzhou","Huangshan","Hefei","Zhengzhou","Huashan","Wuhan","Changsha","Guanzhou","Hong Kong","Shenzen","Guilin","Nanning","Guiyang","Kunming","Chongqing","Chengdu","Xian","Pingyao","Taiyuan","Shijiazhuang","Lanzhou","Xining","Nanchang","Wuyishan","Fuzhou" };
+//writing the possible routes
 void tipar(){
     int i;
     for (i = 1; i <= k; i++)
         cout << cities[st[i]] << " ";
     cout << endl;}
+//validating the routes
 int valid(int k){
-    //validarea lantului
     if (st[1] != x) return 0;
     for (i = 1; i <= k - 1; i++)
         if (st[i] == st[k]) return 0;
@@ -21,6 +22,7 @@ int valid(int k){
         for (i = 2; i <= k; i++)
             if (a[st[i - 1]][st[i]] != 1) return 0;
     return 1;}
+//main function
 int main(){
     //reading the matrix from file
     n = 32;
@@ -52,6 +54,7 @@ int main(){
     //if any of the names are incorrect the program stops
     if (ok1 != true || ok2 != true)
         return 0;
+    //finding all the routes you can take
     k = 2; st[1] = x; st[k] = 0;
     while (k > 0){
         val = 0;
