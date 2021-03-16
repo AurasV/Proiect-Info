@@ -1,9 +1,10 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-int a[50][50], x, y, i, j, n, k, st[1000], val, x2, y2;
+int a[50][50], x, y, i, j, n, k, st[1000], val;
 string p, s, q;
 bool ok1 = false, ok2 = false;
+//the file location must be changed depending on where you stored it!!!
 ifstream f("D:\\Visual Studio repos\\Poriect info\\matrice.txt");
 //name of cities
 const char* cities[33] = { "shabdajdhajhhajkhdaj","Shenyang","Beijing","Tianjin","Jinan","Xuzhou","Nanjing","Shanghai","Hangzhou","Huangshan","Hefei","Zhengzhou","Huashan","Wuhan","Changsha","Guanzhou","Hong Kong","Shenzen","Guilin","Nanning","Guiyang","Kunming","Chongqing","Chengdu","Xian","Pingyao","Taiyuan","Shijiazhuang","Lanzhou","Xining","Nanchang","Wuyishan","Fuzhou" };
