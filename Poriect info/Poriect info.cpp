@@ -8,22 +8,26 @@ ifstream f("matrice.txt");
 //name of cities
 const char* cities[33] = { "shabdajdhajhhajkhdaj","Shenyang","Beijing","Tianjin","Jinan","Xuzhou","Nanjing","Shanghai","Hangzhou","Huangshan","Hefei","Zhengzhou","Huashan","Wuhan","Changsha","Guanzhou","Hong Kong","Shenzen","Guilin","Nanning","Guiyang","Kunming","Chongqing","Chengdu","Xian","Pingyao","Taiyuan","Shijiazhuang","Lanzhou","Xining","Nanchang","Wuyishan","Fuzhou" };
 //writing the possible routes
-void tipar(){
+void tipar() 
+{
     int i;
     for (i = 1; i <= k; i++)
         cout << cities[st[i]] << " ";
-    cout << endl;}
+    cout << endl;
+}
 //validating the routes
-int valid(int k){
+int valid(int k) 
+{
     if (st[1] != x) return 0;
     for (i = 1; i <= k - 1; i++)
         if (st[i] == st[k]) return 0;
     if (k >= 2)
         for (i = 2; i <= k; i++)
             if (a[st[i - 1]][st[i]] != 1) return 0;
-    return 1;}
+    return 1;
+}
 //main function
-int main(){
+int main() {
     //reading the matrix from file
     n = 32;
     for (i = 1; i <= 32; i++)
@@ -48,7 +52,7 @@ int main(){
     }
     //if the names aren't correct the program tells the user which one is incorrect
     if (ok1 != true)
-        cout << "nume oras plecare incorect"<<endl;
+        cout << "nume oras plecare incorect" << endl;
     if (ok2 != true)
         cout << "nume oras sosire incorect";
     //if any of the names are incorrect the program stops
@@ -56,15 +60,22 @@ int main(){
         return 0;
     //finding the routes you can take
     k = 2; st[1] = x; st[k] = 0;
-    while (k > 0){
+    while (k > 0) 
+    {
         val = 0;
-        while (val == 0 && st[k] <= n){
+        while (val == 0 && st[k] <= n) 
+        {
             st[k] = st[k] + 1;
-            if (valid(k) == 1) val = 1;}
+            if (valid(k) == 1) val = 1;
+        }
         if (val == 1)
             if (st[k] == y) tipar();
-            else {
+            else 
+            {
                 k++;
-                st[k] = 0;}
-        else k--;}
-    return 0;}
+                st[k] = 0;
+            }
+        else k--;
+    }
+    return 0;
+}
